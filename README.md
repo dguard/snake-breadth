@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="/captures/snake.png" alt="screenshot" />
-</p>
-
-
 ## Description
 
 [DEMO exchange-rate](https://cis.digitallyconstructed.ru/)
