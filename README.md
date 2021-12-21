@@ -5,7 +5,7 @@
 ## Captures
 
 <p align="center">
-  <img src="/captures/snake.png" alt="screenshot" />
+  <img src="captures/snake.png" alt="screenshot" />
 </p>
 
 
