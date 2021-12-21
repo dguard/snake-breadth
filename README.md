@@ -1,6 +1,6 @@
 ## Description
 
-[DEMO exchange-rate](https://cis.digitallyconstructed.ru/)
+[DEMO](https://dguard.github.io/snake-breadth/)
 
 ## Captures
 
