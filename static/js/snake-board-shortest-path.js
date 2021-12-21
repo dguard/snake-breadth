@@ -442,7 +442,6 @@ function _calculatePreviewTurnsForThisRoundShortestPath(currSnakeHeadPosition, g
     var nextTurns = [];
 
     var visitedMap = {};
-    debugger;
 
     // var { nextTurn, pretendents } = _openRootCell(rootCell, goalPosition, breathCells);
 
