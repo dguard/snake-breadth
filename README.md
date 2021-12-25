@@ -18,14 +18,10 @@ Everything is ready
 
 open `index.html`
 
-## Support
-
-React is a JavaScript library for building user interfaces. [Read more here](https://reactjs.org/community/support.html).
-
 ## Stay in touch
 
 - Contributor: [Alexander Serditov](https://cv.digitallyconstructed.ru/)
 
 ## License
 
-  React is [MIT licensed](LICENSE).
+  [MIT license](LICENSE)
