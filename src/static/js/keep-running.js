@@ -38,7 +38,7 @@ async function showTurnsPreviewShortestPath(previewTurns) {
         if(useKeepRunning) {
             // keep
         } else {
-            return setTimeout(() => { resolve() }, 100);
+            return setTimeout(() => { resolve() }, 10);
         }
 
         drawPreviewTurns(previewTurns.slice(0, -1));
@@ -51,7 +51,7 @@ async function showTurnsPreviewShortestPath(previewTurns) {
             if(useKeepRunning) {
                 // keep
             } else {
-                return setTimeout(() => { resolve() }, 100);
+                return setTimeout(() => { resolve() }, 10);
             }
 
             setTimeout(() => {
@@ -67,7 +67,7 @@ async function showMoveTurnDuringRound(previewTurns) {
         if(useKeepRunning) {
             // keep
         } else {
-            return setTimeout(() => { resolve() }, 100);
+            return setTimeout(() => { resolve() }, 10);
         }
         moveSnakeHeadForThisRound(previewTurns.slice(0,-1)).then(() => {
             setTimeout(() => {
@@ -82,7 +82,7 @@ async function showFinalMoveToTheGoal(previewTurns) {
         if(useKeepRunning) {
             // keep
         } else {
-            return setTimeout(() => { resolve() }, 100);
+            return setTimeout(() => { resolve() }, 10);
         }
         moveSnakeHeadToGoal(previewTurns.slice(-1)[0]).then(() => {
             setTimeout(() => {
@@ -138,7 +138,7 @@ async function doTact() {
                 return resolve();
             }
             resolve();
-        }, 1000);
+        }, 100);
     })
 }
 

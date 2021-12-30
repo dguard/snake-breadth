@@ -83,35 +83,6 @@ function provideInBoard(cell) {
 }
 
 function _openRootCell(rootCell, goalPosition, breathCells) {
-    // get sibling cells
-    // calculate move cost
-    // calculate distance cost
-    // save into minTotalCost
-    // minTotalCostCell
-
-    // save cell into breathCells (from currSnakeHeadPosition, active: {moveCost, distanceCost, totalCost, from: currSnakeHeadPosition})
-    // save new reached cells into reachedPretendents
-    // mark currSnakeHeadPosition as opened
-    // cell with minTotalCost becomes nextTurn cell
-
-    // nextTurn (currSnakeHeadPosition) inside reachedPretendents
-    // skip compare nextTurn to itself
-    // open nextTurn
-    // open reachedPretendents
-    // keep minTotalCost in breathCells
-
-    // if top row -1: do not add path
-    // if left col -1: do not add path
-    // if bottom row -1: do not add path
-    // if right col -1: do not add path
-
-    /*if('barrier' === breathCells[`cell_${padCellNum(rootCell["rowI"])}_${padCellNum(rootCell["colI"])}`]['status']) {
-      return {};
-    }
-    */
-
-    // if status: available-to-open keep
-
     var minTotalCostCell;
     var minTotalCostValue = Number.MAX_SAFE_INTEGER;
 
@@ -442,69 +413,11 @@ function _calculatePreviewTurnsForThisRoundShortestPath(currSnakeHeadPosition, g
     var nextTurns = [];
 
     var visitedMap = {};
-    debugger;
 
-    // var { nextTurn, pretendents } = _openRootCell(rootCell, goalPosition, breathCells);
 
     var startingPath = [startingCell];
     var queue = [startingPath];
 
-    /*var pathLength = null;
-    var paths = {};
-
-    try {
-      while(queue.length) {
-         var path = queue.shift();
-         var node = path[path.length-1];
-
-         if(Object.keys(visitedMap).indexOf(`cell_${padCellNum(node["rowI"])}_${padCellNum(node["colI"])}`) === -1) {
-          visitedMap[`cell_${padCellNum(node["rowI"])}_${padCellNum(node["colI"])}`] = node;
-
-          // neighbors
-          var { nextTurn, pretendents } = _openRootCell(node, goalPosition, breathCells);
-
-          for(var i = 0; i < Object.keys(pretendents).length; i++) {
-            var key = Object.keys(pretendents)[i];
-
-            var insideTail = [false].concat(snakeTailPositions).reduce((prev, curr) => {
-              return prev || (pretendents[key]["rowI"] === curr["rowI"] && pretendents[key]["colI"] === curr["colI"]);
-            })
-            if(insideTail) {
-              continue;
-            }
-            const newPath = path.concat([pretendents[key]]);
-
-            if(pathLength && newPath.length === (pathLength+1)) {
-              throw new Error("stop iteration");
-            }
-            if(pretendents[key]["rowI"] === goalPosition["rowI"] && pretendents[key]["colI"] === goalPosition["colI"]) {
-              pathLength = newPath.length;
-              if(paths[pathLength]) {
-                // keep
-                paths[pathLength].push(newPath)
-              } else {
-                paths[pathLength] = [];
-              }
-
-            }
-
-            queue.push(newPath);
-          }
-         }
-
-
-      }
-
-    } catch (err) {
-      if(err.message === "stop iteration") {
-        // keep
-        if(paths[pathLength].length) {
-          return paths[pathLength][1];
-        }
-      } else {
-        throw err;
-      }
-    }*/
 
     while(queue.length) {
         var path = queue.shift();

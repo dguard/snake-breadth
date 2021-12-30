@@ -605,7 +605,7 @@ async function moveSnakeHeadToGoal(curr) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve();
-        }, 200)
+        }, 100)
     })
 }
 
@@ -620,7 +620,7 @@ async function moveSnakeHeadForThisRound(previewTurns) {
                     moveSnakeHead(curr);
 
                     resolve();
-                }, 200)
+                }, 100)
             })
         })
     })
@@ -649,26 +649,6 @@ function calculatePreviewTurnsForThisRound(previewTurns) {
         currSnakeHeadPosition["rowI"] = nextTurnPosition["rowI"];
         currSnakeHeadPosition["colI"] = nextTurnPosition["colI"];
     }
-
-    // do processing of turns
-    /*if(previewTurns && (previewTurns[0]["colI"] - snakeHeadPosition["colI"] === 1)) {
-     // keep
-     var horizontalTurns = [];
-     var verticalTurns = [];
-     var miniCurrSnakeHeadPosition = {};
-
-     miniCurrSnakeHeadPosition["rowI"] = snakeHeadPosition["rowI"];
-     miniCurrSnakeHeadPosition["colI"] = snakeHeadPosition["colI"];
-     var miniTurns = JSON.parse(JSON.stringify(previewTurns));
-     var nextTurnPosition = miniTurns.shift();
-     // while turns are from right to left
-     while(nextTurnPosition["colI"] < miniCurrSnakeHeadPosition["colI"]) {
-       horizontalTurns.push(nextTurnPosition);
-
-       nextTurnPosition = miniTurns.shift();
-     }
-     verticalTurns = verticalTurns.concat(miniTurns);
-    }*/
 
     return previewTurns;
 }
