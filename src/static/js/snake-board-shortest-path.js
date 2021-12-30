@@ -93,13 +93,7 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"],
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostVertical();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
+
 
     if('barrier' === breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`]['status']) {
         // keep
@@ -107,10 +101,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -121,13 +111,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] - 1,
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostDiagonalLeft();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -137,10 +120,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -150,13 +129,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] - 1,
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostHorizontal();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -166,10 +138,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -179,13 +147,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] - 1
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostDiagonalLeft();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -195,10 +156,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -208,13 +165,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"],
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostVertical();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -224,10 +174,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -237,13 +183,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] + 1,
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostDiagonalRight();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -253,10 +192,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -266,13 +201,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] + 1,
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostHorizontal();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -282,10 +210,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
     } else {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
-    }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
     }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
@@ -295,13 +219,6 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         "colI": rootCell["colI"] + 1,
     };
     newTurn = handleCellEdgeCases(newTurn);
-    newTurn["moveCost"] = provideMoveCostDiagonalRight();
-    newTurn["distanceCost"] = provideDistanceCost(rootCell, goalPosition);
-    if(rootCell['type'] === 'root_cell') {
-        newTurn["totalCost"] = newTurn["moveCost"] + newTurn["distanceCost"];
-    } else {
-        newTurn["totalCost"] = rootCell["totalCost"] + newTurn["moveCost"];
-    }
     newTurn["status"] = "available-to-open";
     newTurn["from_pretendents"] = [rootCell];
 
@@ -312,17 +229,12 @@ function _openRootCell(rootCell, goalPosition, breathCells) {
         newTurn["status"] = "available-to-open";
         pretendents[`cell_${newTurn["rowI"]}_${newTurn["colI"]}`] = newTurn;
     }
-    if(newTurn["totalCost"] < minTotalCostValue) {
-        minTotalCostCell = newTurn;
-        minTotalCostValue = newTurn["totalCost"];
-    }
     breathCells[`cell_${padCellNum(newTurn["rowI"])}_${padCellNum(newTurn["colI"])}`] = newTurn;
 
-    var nextTurn = minTotalCostCell;
 
     breathCells[`cell_${padCellNum(rootCell["rowI"])}_${padCellNum(rootCell["colI"])}`]["status"] = "opened";
 
-    return { nextTurn, pretendents };
+    return { nextTurn: null, pretendents };
 }
 
 function markBarrierCell(position, breathCells) {
