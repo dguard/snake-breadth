@@ -1,0 +1,16 @@
+{
+  "name": "snake-breadth",
+  "version": "0.0.1",
+  "description": "Package implements algorithm Breadh Shortest Path for snake game case",
+  "author": "Alexander Serditov",
+  "repository": "https://github.com/dguard/snake-breadth",
+  "scripts": {
+    "test": "karma --browsers Chrome start ./karma.conf.js"
+  },
+  "keywords": [
+    "breadth",
+    "shortest path",
+    "snake"
+  ],
+  "license": "MIT"
+}
