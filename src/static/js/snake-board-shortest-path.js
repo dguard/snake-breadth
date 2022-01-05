@@ -1,10 +1,10 @@
-
-// keep
-// snakeTailPositions
-
-// wallTriangle
-// listWallTriangle
-
+/**
+ *   Snake-Board-Shortest-Path.js
+ *   github.com/dguard/snake-breadth
+ *   Licensed under the MIT license.
+ *
+ *   Implementation By Alexander Serditov (keep@digitallyconstructed.ru)
+ **/
 function handleCellEdgeCases(newCell) {
     return newCell;
     if(newCell["rowI"] < 0) {
@@ -242,9 +242,6 @@ function markBarrierCell(position, breathCells) {
 }
 
 function _calculatePreviewTurnsForThisRoundShortestPath(currSnakeHeadPosition, goalPosition, breathCells) {
-    // _calculateNextTurnAStar
-    // when nextTurn calculated; nextTurn inside reachedPretendents
-
     // graph
     var breathCells = {};
     for(var i = 0 ; i < TOTAL_ROWS; i++) {
@@ -256,7 +253,6 @@ function _calculatePreviewTurnsForThisRoundShortestPath(currSnakeHeadPosition, g
             }
         }
     }
-
 
     // add top barrier row
     var i = -1;
@@ -321,11 +317,9 @@ function _calculatePreviewTurnsForThisRoundShortestPath(currSnakeHeadPosition, g
         "type": "goal_cell"
     }
 
-    // pretendents
     var nextTurns = [];
 
     var visitedMap = {};
-
 
     var startingPath = [startingCell];
     var queue = [startingPath];

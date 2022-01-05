@@ -1,4 +1,10 @@
-
+/**
+ *   Put-Wall-Step-By-Step.js
+ *   github.com/dguard/snake-breadth
+ *   Licensed under the MIT license.
+ *
+ *   Implementation By Alexander Serditov (keep@digitallyconstructed.ru)
+ **/
 var newSnakeHeadPosition = {
     "rowI": 2,
     "colI": 9

@@ -1,3 +1,10 @@
+/**
+ *   Snake-Board.js
+ *   github.com/dguard/snake-breadth
+ *   Licensed under the MIT license.
+ *
+ *   Implementation By Alexander Serditov (keep@digitallyconstructed.ru)
+ **/
 var tiles = {
     "not-visited": {
         "not-visited": {
@@ -17,8 +24,6 @@ var tiles = {
 };
 
 var previewState = {
-    // snakeHead
-    // goal
     "snakeHead": {},
     "goal": {}
 };
@@ -125,30 +130,29 @@ function renderSnakeHead(selectedTile) {
     // change classes
     selectedTile.classList.add("circle-highlight");
     selectedTile.style = `
-    width: 14px;
-    height: 14px;
-    background: #00b3ff;
-    border: 2px solid #636466;
-    border-radius: 15px;
-  `;
+        width: 14px;
+        height: 14px;
+        background: #00b3ff;
+        border: 2px solid #636466;
+        border-radius: 15px;
+      `;
     selectedTile.classList.remove("circle-not-visited");
 }
 function renderGoal(selectedTile) {
     selectedTile.classList.add("circle-goal");
     selectedTile.style = `
-    width: 14px;
-    height: 14px;
-    background: #ffb800;
-    border: 2px solid #636466;
-    border-radius: 15px;
-  `;
+        width: 14px;
+        height: 14px;
+        background: #ffb800;
+        border: 2px solid #636466;
+        border-radius: 15px;
+      `;
     selectedTile.classList.remove("circle-not-visited");
 }
 
 function spawnSnakeHead() {
     var randomRowI = randomIntFromInterval(0, 8);
     var randomCellI = randomIntFromInterval(0, 27);
-    // place of snake, place of goal
 
     var selectedRow = document.querySelectorAll('table tr')[randomRowI];
     var selectedCell = selectedRow.querySelectorAll('td')[randomCellI];
@@ -173,15 +177,14 @@ function spawnSnakeHead() {
         "colI": randomCellI
     };
 
-    // change classes
     selectedTile.classList.add("circle-highlight");
     selectedTile.style = `
-    width: 14px;
-    height: 14px;
-    background: #00b3ff;
-    border: 2px solid #636466;
-    border-radius: 15px;
-  `;
+        width: 14px;
+        height: 14px;
+        background: #00b3ff;
+        border: 2px solid #636466;
+        border-radius: 15px;
+      `;
     selectedTile.classList.remove("circle-not-visited");
 }
 
@@ -194,19 +197,17 @@ function renderSnakeTail(tailPosition) {
     if(Array.from(selectedTile.classList).indexOf("circle-not-visited") >= 0) {
         // keep
     } else {
-        // rerun random select
         return;
     }
 
-    // change classes
     selectedTile.classList.add("circle-highlight-tail");
     selectedTile.style = `
-    width: 14px;
-    height: 14px;
-    background: #73b3db;
-    border: 2px solid #636466;
-    border-radius: 15px;
-  `;
+        width: 14px;
+        height: 14px;
+        background: #73b3db;
+        border: 2px solid #636466;
+        border-radius: 15px;
+      `;
     selectedTile.classList.remove("circle-not-visited");
 }
 
@@ -219,43 +220,43 @@ function renderPreviewTurnTile(previewTurn) {
 
     if (Array.from(selectedCell.querySelector('div').classList).length === 1) {
         circlePreviewTurn.style = `
-      width: 14px;
-      height: 14px;
-      border: 2px solid #636466;
-      border-radius: 15px;
-      background: #ffffff;
-    `;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #636466;
+            border-radius: 15px;
+            background: #ffffff;
+        `;
     } else if (Array.from(selectedCell.querySelector('div').classList).indexOf("circle-not-visited_variant-2") >= 0) {
         circlePreviewTurn.style = `
-      width: 14px;
-      height: 14px;
-      background: rgb(228, 231, 237);
-      border: 2px solid rgb(99, 100, 102);
-      border-radius: 15px;
-    `;
+            width: 14px;
+            height: 14px;
+            background: rgb(228, 231, 237);
+            border: 2px solid rgb(99, 100, 102);
+            border-radius: 15px;
+        `;
         circlePreviewTurn.classList.add("circle-not-not-visited_variant-2");
     }
 
     var circlePreviewTurnInner = document.createElement("div");
     circlePreviewTurnInner.style = `
-    background: #ff5200;
-    width: 6px;
-    height: 6px;
-    border-radius: 15px;
-    margin-left: 2px;
-    margin-top: 2px;
-    border: 2px solid #636466;
- `;
+        background: #ff5200;
+        width: 6px;
+        height: 6px;
+        border-radius: 15px;
+        margin-left: 2px;
+        margin-top: 2px;
+        border: 2px solid #636466;
+    `;
     circlePreviewTurn.appendChild(circlePreviewTurnInner);
 
     selectedCell.querySelector('div').outerHTML = circlePreviewTurn.outerHTML;
 }
 
 var spawnAttempts = 0;
+
 function _spawnGoal() {
     var randomRowI = randomIntFromInterval(0, 8);
     var randomCellI = randomIntFromInterval(0, 27);
-    // place of snake, place of goal
 
     var selectedRow = document.querySelectorAll('table tr')[randomRowI];
     var selectedCell = selectedRow.querySelectorAll('td')[randomCellI];
@@ -291,46 +292,41 @@ function spawnGoal() {
         "colI": randomCellI
     };
 
-    // change classes
     selectedTile.classList.add("circle-goal");
     selectedTile.style = `
-    width: 14px;
-    height: 14px;
-    background: #ffb800;
-    border: 2px solid #636466;
-    border-radius: 15px;
-  `;
+        width: 14px;
+        height: 14px;
+        background: #ffb800;
+        border: 2px solid #636466;
+        border-radius: 15px;
+    `;
     selectedTile.classList.remove("circle-not-visited");
 }
 
 function clearSnakeHead() {
-    var listCircleHighlighted = document.querySelectorAll("table .circle-highlight")
+    var listCircleHighlighted = document.querySelectorAll("table .circle-highlight");
     Array.from(listCircleHighlighted).map((circle) => {
-        // restore circle-not-visited, circle-not-visited_variant-2
         if(circle.classList.length == 1) {
-            // keep
             circle.classList.add("circle-not-visited");
             circle.classList.remove("circle-highlight");
             circle.style = `
-        width: 14px;
-        height: 14px;
-        background: #ffffff;
-        border: 2px solid #636466;
-        border-radius: 15px;
-     `;
+                width: 14px;
+                height: 14px;
+                background: #ffffff;
+                border: 2px solid #636466;
+                border-radius: 15px;
+            `;
         } else if(Array.from(circle.classList).indexOf("circle-highlight")
             && Array.from(circle.classList).indexOf("circle-not-visited_variant-2") >= 0) {
             circle.classList.add("circle-not-visited");
             circle.classList.remove("circle-highlight");
             circle.style = `
-         width: 14px;
-         height: 14px;
-         background: #e4e7ed;
-         border: 2px solid #636466;
-         border-radius: 15px;
-        `;
-        } else {
-            // filter
+                width: 14px;
+                height: 14px;
+                background: #e4e7ed;
+                border: 2px solid #636466;
+                border-radius: 15px;
+            `;
         }
     })
     delete previewState["snakeHead"]["rowI"];
@@ -340,7 +336,6 @@ function clearSnakeHead() {
 function clearGoal() {
     var listCircleHighlighted = document.querySelectorAll("table .circle-goal")
     Array.from(listCircleHighlighted).map((circle) => {
-        // restore circle-not-visited, circle-not-visited_variant-2
         if(circle.classList.length == 1) {
             // keep
             circle.classList.add("circle-not-visited");
@@ -363,8 +358,6 @@ function clearGoal() {
          border: 2px solid #636466;
          border-radius: 15px;
         `;
-        } else {
-            // filter
         }
     })
     delete previewState["goal"]["rowI"];
@@ -447,8 +440,6 @@ function handleLastCellInRow(newNextTurn) {
 }
 
 function calculateNextTurnNaive(currSnakeHeadPosition, goalPosition) {
-    // when cell is not in snakeTailPositions
-    // keep
     var nextTurn = _calculateNextTurnNaive(currSnakeHeadPosition, goalPosition);
     var nextTurnInsideTail = [false].concat(snakeTailPositions).reduce((prev, snakeTailPosition) => {
         return prev || (nextTurn["rowI"] === snakeTailPosition["rowI"] && nextTurn["colI"] === snakeTailPositions["colI"])
@@ -503,8 +494,6 @@ var snakeHeadPosition = {
 
 function moveSnakeHead(previewTurn) {
     var miniCurrSnakeHeadPosition = JSON.parse(JSON.stringify(snakeHeadPosition));
-    //snakeHeadPosition["rowI"] = previewTurn["rowI"];
-    //snakeHeadPosition["colI"] = previewTurn["colI"];
 
     clearSnakeHead();
     // renderSnakeHeadTile();
@@ -524,8 +513,6 @@ function moveSnakeHead(previewTurn) {
 
     var selectedTile = selectedCell.querySelector('div');
 
-
-    // change classes
     selectedTile.classList.add("circle-highlight");
     selectedTile.style = `
     width: 14px;
@@ -548,7 +535,6 @@ function moveSnakeHead(previewTurn) {
 function clearSnakeTailPositions() {
     var listCircleHighlighted = document.querySelectorAll("table .circle-highlight-tail")
     Array.from(listCircleHighlighted).map((circle) => {
-        // restore circle-not-visited, circle-not-visited_variant-2
         if(circle.classList.length == 1) {
             // keep
             circle.classList.add("circle-not-visited");
@@ -571,8 +557,6 @@ function clearSnakeTailPositions() {
          border: 2px solid #636466;
          border-radius: 15px;
         `;
-        } else {
-            // filter
         }
     })
 

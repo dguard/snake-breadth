@@ -1,10 +1,10 @@
-
-// keep
-// snakeHeadPosition
-// currSnakeHeadPosition
-
-// goalPosition
-
+/**
+ *   Put-Wall.js
+ *   github.com/dguard/snake-breadth
+ *   Licensed under the MIT license.
+ *
+ *   Implementation By Alexander Serditov (keep@digitallyconstructed.ru)
+ **/
 var wallTriangle = {
     "wallTriangleId": "",
     "startPosition": "",

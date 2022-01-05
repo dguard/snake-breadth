@@ -1,3 +1,10 @@
+/**
+ *   Keep-Running.js
+ *   github.com/dguard/snake-breadth
+ *   Licensed under the MIT license.
+ *
+ *   Implementation By Alexander Serditov (keep@digitallyconstructed.ru)
+ **/
 var useKeepRunning = false;
 var showTurnsPreview = false;
 var doMoveTurnDuringRound = false;
